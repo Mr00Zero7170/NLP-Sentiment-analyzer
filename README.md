@@ -4,6 +4,7 @@ A Python sentiment analyzer built with:
 - BERT-based model from Hugging Face Transformers
 - PyTorch inference backend
 - Command-line interface for single and batch predictions
+- Streamlit web UI for interactive predictions
 
 ## Setup
 
@@ -33,8 +34,19 @@ Use a custom model:
 python app.py --text "This is terrible" --model cardiffnlp/twitter-roberta-base-sentiment-latest
 ```
 
+## Web App (Streamlit)
+
+Run:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Then open the local URL shown in your terminal (usually `http://localhost:8501`).
+
 ## Project Structure
 
 - `app.py` - CLI entry point
+- `streamlit_app.py` - Streamlit web interface
 - `src/sentiment_analyzer.py` - BERT sentiment analyzer logic
 - `requirements.txt` - dependencies
