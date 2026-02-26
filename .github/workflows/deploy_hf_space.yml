@@ -6,11 +6,18 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ secrets.HF_TOKEN != '' && secrets.HF_SPACE_ID != '' }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Validate required secrets
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE_ID: ${{ secrets.HF_SPACE_ID }}
+        run: |
+          test -n "$HF_TOKEN" || (echo "Missing HF_TOKEN secret" && exit 1)
+          test -n "$HF_SPACE_ID" || (echo "Missing HF_SPACE_ID secret" && exit 1)
 
       - name: Configure git
         run: |
