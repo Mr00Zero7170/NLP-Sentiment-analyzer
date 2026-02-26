@@ -3,9 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Iterable, List, Dict
 
-import torch
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
-
 
 @dataclass
 class SentimentPrediction:
@@ -20,6 +17,10 @@ class BertSentimentAnalyzer:
         model_name: str = "distilbert-base-uncased-finetuned-sst-2-english",
         max_length: int = 256,
     ) -> None:
+        import torch
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+        self._torch = torch
         self.model_name = model_name
         self.max_length = max_length
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -39,10 +40,10 @@ class BertSentimentAnalyzer:
         )
         encoded = {k: v.to(self.device) for k, v in encoded.items()}
 
-        with torch.no_grad():
+        with self._torch.no_grad():
             outputs = self.model(**encoded)
-            probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
-            scores, preds = torch.max(probs, dim=-1)
+            probs = self._torch.nn.functional.softmax(outputs.logits, dim=-1)
+            scores, preds = self._torch.max(probs, dim=-1)
 
         id2label = self.model.config.id2label
         results: List[SentimentPrediction] = []
