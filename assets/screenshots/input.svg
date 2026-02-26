@@ -1,0 +1,10 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0a111d"/>
+  <rect x="30" y="30" width="1140" height="640" rx="18" fill="#101a2a" stroke="#2e3f58"/>
+  <rect x="70" y="150" width="500" height="470" rx="12" fill="#131f31" stroke="#32445e"/>
+  <text x="90" y="188" fill="#e9efff" font-size="20" font-family="Arial">Input</text>
+  <rect x="90" y="220" width="460" height="260" rx="10" fill="#0e1726" stroke="#2f4461"/>
+  <text x="110" y="260" fill="#89a0c5" font-size="18" font-family="Arial">"I loved the user experience and speed"</text>
+  <rect x="90" y="510" width="220" height="52" rx="8" fill="#2f6fed"/>
+  <text x="142" y="543" fill="#ffffff" font-size="18" font-family="Arial" font-weight="700">Run Inference</text>
+</svg>

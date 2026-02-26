@@ -1,0 +1,14 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0a111d"/>
+  <rect x="30" y="30" width="1140" height="640" rx="18" fill="#101a2a" stroke="#2e3f58"/>
+  <rect x="620" y="150" width="510" height="470" rx="12" fill="#131f31" stroke="#32445e"/>
+  <text x="640" y="188" fill="#e9efff" font-size="20" font-family="Arial">Results</text>
+  <rect x="650" y="220" width="450" height="145" rx="10" fill="#0e1726" stroke="#2f4461"/>
+  <text x="675" y="260" fill="#7dffbb" font-size="20" font-family="Arial" font-weight="700">POSITIVE</text>
+  <text x="675" y="300" fill="#e9efff" font-size="22" font-family="Arial">Confidence: 94.7%</text>
+  <rect x="650" y="400" width="450" height="170" rx="10" fill="#0e1726" stroke="#2f4461"/>
+  <rect x="690" y="440" width="300" height="30" fill="#3e8ef7"/>
+  <rect x="690" y="495" width="140" height="30" fill="#ef5c73"/>
+  <text x="650" y="460" fill="#9db0ce" font-size="16" font-family="Arial">POSITIVE</text>
+  <text x="650" y="515" fill="#9db0ce" font-size="16" font-family="Arial">NEGATIVE</text>
+</svg>

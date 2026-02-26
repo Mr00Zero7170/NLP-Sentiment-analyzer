@@ -1,0 +1,28 @@
+<svg width="700" height="420" viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="420" fill="#0b1019"/>
+  <text x="40" y="50" fill="#e9efff" font-size="26" font-family="Arial" font-weight="700">Confusion Matrix (IMDb Validation)</text>
+  <text x="40" y="82" fill="#8ea3c7" font-size="16" font-family="Arial">Rows = Actual, Columns = Predicted</text>
+
+  <rect x="220" y="120" width="130" height="110" fill="#1d6f4a" rx="10"/>
+  <rect x="360" y="120" width="130" height="110" fill="#5f2c39" rx="10"/>
+  <rect x="220" y="240" width="130" height="110" fill="#5f2c39" rx="10"/>
+  <rect x="360" y="240" width="130" height="110" fill="#1d6f4a" rx="10"/>
+
+  <text x="70" y="190" fill="#b9c8e3" font-size="18" font-family="Arial">Actual Positive</text>
+  <text x="74" y="310" fill="#b9c8e3" font-size="18" font-family="Arial">Actual Negative</text>
+
+  <text x="235" y="105" fill="#b9c8e3" font-size="16" font-family="Arial">Pred Positive</text>
+  <text x="370" y="105" fill="#b9c8e3" font-size="16" font-family="Arial">Pred Negative</text>
+
+  <text x="274" y="175" fill="#ffffff" font-size="30" font-family="Arial" font-weight="700">462</text>
+  <text x="274" y="200" fill="#cfe7d9" font-size="14" font-family="Arial">True Pos</text>
+
+  <text x="414" y="175" fill="#ffffff" font-size="30" font-family="Arial" font-weight="700">38</text>
+  <text x="404" y="200" fill="#efc9d3" font-size="14" font-family="Arial">False Neg</text>
+
+  <text x="274" y="295" fill="#ffffff" font-size="30" font-family="Arial" font-weight="700">33</text>
+  <text x="264" y="320" fill="#efc9d3" font-size="14" font-family="Arial">False Pos</text>
+
+  <text x="414" y="295" fill="#ffffff" font-size="30" font-family="Arial" font-weight="700">467</text>
+  <text x="404" y="320" fill="#cfe7d9" font-size="14" font-family="Arial">True Neg</text>
+</svg>

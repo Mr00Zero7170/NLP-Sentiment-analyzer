@@ -1,0 +1,10 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0a111d"/>
+  <rect x="30" y="30" width="1140" height="640" rx="18" fill="#101a2a" stroke="#2e3f58"/>
+  <text x="70" y="85" fill="#e9efff" font-size="34" font-family="Arial" font-weight="700">NLP Sentiment Analyzer</text>
+  <text x="70" y="112" fill="#9db0ce" font-size="17" font-family="Arial">Production-style sentiment dashboard</text>
+  <rect x="70" y="150" width="500" height="470" rx="12" fill="#131f31" stroke="#32445e"/>
+  <rect x="620" y="150" width="510" height="470" rx="12" fill="#131f31" stroke="#32445e"/>
+  <text x="90" y="188" fill="#e9efff" font-size="20" font-family="Arial">Input</text>
+  <text x="640" y="188" fill="#e9efff" font-size="20" font-family="Arial">Results</text>
+</svg>
