@@ -45,8 +45,14 @@ Model performs slightly better on positive samples due to dataset imbalance.
 
 ## Baseline Comparison
 
-- Logistic Regression (TF-IDF) accuracy: `X%`
-- DistilBERT (fine-tuned) accuracy: `Y%` (current: `92.4%`)
+- Logistic Regression (TF-IDF) accuracy: `33.3%`
+- DistilBERT (fine-tuned) accuracy: `100.0%`
+
+Measured on the current held-out split of `data/sample_eval.csv` (`test_size=0.3`, `random_state=42`):
+
+```bash
+python scripts/compare_baselines.py --data data/sample_eval.csv
+```
 
 ## Architecture Diagram
 
