@@ -43,7 +43,7 @@ jobs:
               repo_type="space",
               private=False,
               exist_ok=True,
-              space_sdk="streamlit",
+              space_sdk="docker",
           )
           print(f"Space ready: {space_id}")
           PY
@@ -66,6 +66,7 @@ jobs:
             --exclude '.ruff_cache' \
             ./ hf_space/
           cp deploy/hf/README_SPACE.md hf_space/README.md
+          cp deploy/hf/Dockerfile hf_space/Dockerfile
 
       - name: Push to Hugging Face Space
         env:
