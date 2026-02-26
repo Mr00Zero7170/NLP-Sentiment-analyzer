@@ -5,11 +5,24 @@ class DummyAnalyzer(BertSentimentAnalyzer):
     def __init__(self) -> None:
         pass
 
+    def predict_detailed(self, text):
+        label = "POSITIVE" if "good" in text.lower() else "NEGATIVE"
+        score = 0.99
+        return {
+            "text": text,
+            "label": label,
+            "score": score,
+            "probabilities": {
+                "POSITIVE": score if label == "POSITIVE" else 0.01,
+                "NEGATIVE": score if label == "NEGATIVE" else 0.01,
+            },
+        }
+
     def _infer(self, texts):
         out = []
-        for t in texts:
-            label = "POSITIVE" if "good" in t.lower() else "NEGATIVE"
-            out.append(type("R", (), {"text": t, "label": label, "score": 0.99})())
+        for text in texts:
+            label = "POSITIVE" if "good" in text.lower() else "NEGATIVE"
+            out.append(type("R", (), {"text": text, "label": label, "score": 0.99})())
         return out
 
 

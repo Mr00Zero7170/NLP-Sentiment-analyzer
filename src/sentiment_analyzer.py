@@ -57,12 +57,41 @@ class BertSentimentAnalyzer:
             )
         return results
 
-    def predict(self, text: str) -> Dict[str, str | float]:
-        result = self._infer([text])[0]
+    def predict_detailed(self, text: str) -> Dict[str, str | float | Dict[str, float]]:
+        encoded = self.tokenizer(
+            [text],
+            padding=True,
+            truncation=True,
+            max_length=self.max_length,
+            return_tensors="pt",
+        )
+        encoded = {k: v.to(self.device) for k, v in encoded.items()}
+
+        with self._torch.no_grad():
+            outputs = self.model(**encoded)
+            probs = self._torch.nn.functional.softmax(outputs.logits, dim=-1)[0]
+
+        id2label = self.model.config.id2label
+        probabilities: Dict[str, float] = {}
+        for idx, prob in enumerate(probs.tolist()):
+            label = id2label.get(idx, str(idx))
+            probabilities[label] = round(float(prob), 4)
+
+        best_label = max(probabilities, key=probabilities.get)
+        best_score = probabilities[best_label]
         return {
-            "text": result.text,
-            "label": result.label,
-            "score": result.score,
+            "text": text,
+            "label": best_label,
+            "score": best_score,
+            "probabilities": probabilities,
+        }
+
+    def predict(self, text: str) -> Dict[str, str | float]:
+        result = self.predict_detailed(text)
+        return {
+            "text": str(result["text"]),
+            "label": str(result["label"]),
+            "score": float(result["score"]),
         }
 
     def predict_batch(self, texts: Iterable[str]) -> List[Dict[str, str | float]]:
