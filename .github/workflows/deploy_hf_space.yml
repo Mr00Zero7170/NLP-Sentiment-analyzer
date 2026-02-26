@@ -1,0 +1,46 @@
+name: Deploy Hugging Face Space
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.HF_TOKEN != '' && secrets.HF_SPACE_ID != '' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions"
+
+      - name: Clone Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE_ID: ${{ secrets.HF_SPACE_ID }}
+        run: |
+          git clone https://oauth2:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE_ID} hf_space
+
+      - name: Sync files to Space
+        run: |
+          rsync -av --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.venv' \
+            --exclude '__pycache__' \
+            --exclude '.pytest_cache' \
+            --exclude '.ruff_cache' \
+            ./ hf_space/
+          cp deploy/hf/README_SPACE.md hf_space/README.md
+
+      - name: Push to Hugging Face Space
+        env:
+          HF_SPACE_ID: ${{ secrets.HF_SPACE_ID }}
+        run: |
+          cd hf_space
+          git add .
+          git commit -m "Deploy from GitHub Actions" || echo "No changes to commit"
+          git push

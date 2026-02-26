@@ -10,6 +10,11 @@ End-to-end sentiment analysis system with:
 
 Model version: `v1.0`
 
+## Live Demo
+
+After creating your Space, add your link here:
+- https://huggingface.co/spaces/Mr00Zero7170/nlp-sentiment-analyzer
+
 ## Why This Project?
 
 This project demonstrates:
@@ -103,6 +108,22 @@ pytest -q
 docker build -t nlp-sentiment-analyzer .
 docker run -p 8000:8000 nlp-sentiment-analyzer
 ```
+
+## Deploy to Hugging Face Spaces
+
+1. Create a new Space on Hugging Face:
+- SDK: `Streamlit`
+- Suggested name: `nlp-sentiment-analyzer`
+
+2. In GitHub repo settings, add secrets:
+- `HF_TOKEN`: your Hugging Face access token (write permission)
+- `HF_SPACE_ID`: `Mr00Zero7170/nlp-sentiment-analyzer`
+
+3. Run deployment workflow:
+- GitHub -> Actions -> `Deploy Hugging Face Space` -> `Run workflow`
+
+4. Open your live app:
+- `https://huggingface.co/spaces/Mr00Zero7170/nlp-sentiment-analyzer`
 
 ## Resume Bullet (Use This)
 
