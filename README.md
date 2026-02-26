@@ -1,4 +1,5 @@
 # NLP Sentiment Analyzer (BERT + PyTorch + Transformers)
+[![CI](https://github.com/Mr00Zero7170/NLP-Sentiment-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/Mr00Zero7170/NLP-Sentiment-analyzer/actions/workflows/ci.yml)
 
 End-to-end sentiment analysis project with:
 - Transformer-based inference (`distilbert-base-uncased-finetuned-sst-2-english`)
