@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.env
+*.ipynb_checkpoints
