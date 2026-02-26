@@ -24,6 +24,30 @@ jobs:
           git config --global user.email "actions@github.com"
           git config --global user.name "github-actions"
 
+      - name: Ensure Hugging Face Space exists
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE_ID: ${{ secrets.HF_SPACE_ID }}
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install huggingface_hub
+          python - <<'PY'
+          import os
+          from huggingface_hub import create_repo
+
+          space_id = os.environ["HF_SPACE_ID"]
+          token = os.environ["HF_TOKEN"]
+          create_repo(
+              repo_id=space_id,
+              token=token,
+              repo_type="space",
+              private=False,
+              exist_ok=True,
+              space_sdk="streamlit",
+          )
+          print(f"Space ready: {space_id}")
+          PY
+
       - name: Clone Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
